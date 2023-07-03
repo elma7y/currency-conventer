@@ -1,0 +1,21 @@
+::ng-deep .p-menubar {
+  p-menubarsub {
+    position: absolute;
+    right: 100px;
+  }
+}
+img {
+  margin-left: 100px;
+}
+@media screen and (max-width: 960px) {
+  ::ng-deep .p-menubar {
+    p-menubarsub {
+      position: static;
+    }
+  }
+  img {
+    height: 60px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
