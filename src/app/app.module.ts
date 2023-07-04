@@ -11,6 +11,10 @@ import { PrimeModule } from './modules/prime/prime.module';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { CurrencyComponent } from './components/currency/currency.component';
+import { ConvertComponent } from './components/convert/convert.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ConvertDateComponent } from './components/convert-date/convert-date.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { CurrencyComponent } from './components/currency/currency.component';
     AboutComponent,
     ContactUsComponent,
     CurrencyComponent,
+    ConvertComponent,
+    ConvertDateComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +33,9 @@ import { CurrencyComponent } from './components/currency/currency.component';
     BrowserAnimationsModule,
     PrimeModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

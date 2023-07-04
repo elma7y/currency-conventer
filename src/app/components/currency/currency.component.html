@@ -1,23 +1,26 @@
-<p-table
-  [value]="symbols"
-  [paginator]="true"
-  [rows]="10"
-  [showCurrentPageReport]="true"
-  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-  [rowsPerPageOptions]="[10, 25, 50]"
-  styleClass="p-datatable-striped"
-  [tableStyle]="{ 'min-width': '50rem' }"
->
-  <ng-template pTemplate="header">
-    <tr>
-      <th class="text-center">Symbol</th>
-      <th class="text-center">Name</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-symbols>
-    <tr>
-      <td class="text-center">{{ symbols[0] }}</td>
-      <td class="text-center">{{ symbols[1] }}</td>
-    </tr>
-  </ng-template>
-</p-table>
+<section>
+  <h2 class="text-center text-capitalize my-5">currencies symbols</h2>
+  <p-table
+    [value]="symbols"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    styleClass="p-datatable-striped"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="text-center">Symbols</th>
+        <th class="text-center">Name</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-symbols>
+      <tr>
+        <td class="text-center">{{ symbols[0] }}</td>
+        <td class="text-center">{{ symbols[1] }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</section>

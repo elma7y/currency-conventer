@@ -1,0 +1,79 @@
+.convert-form {
+  padding: 50px;
+  background: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  form {
+    .success-focus:focus {
+      border-color: green;
+      box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.25);
+    }
+    .submit {
+      button {
+        width: 25%;
+      }
+    }
+    .switch {
+      width: 25%;
+      text-align: center;
+      button {
+        width: 25%;
+        i {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .amount {
+      width: 50%;
+      p-inputnumber > span {
+        width: 100%;
+      }
+    }
+    .from {
+      width: 50%;
+      p-dropdown {
+        width: 100%;
+      }
+      .p-dropdown {
+        width: 100%;
+      }
+    }
+    .to {
+      width: 50%;
+      p-dropdown {
+        width: 100%;
+      }
+      .p-dropdown {
+        width: 100%;
+      }
+    }
+  }
+  .result {
+    background: #ffe000;
+    font-size: 20px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  section {
+    .submit {
+      button {
+        width: 30% !important;
+        padding: 5px;
+        font-size: 12px;
+      }
+    }
+    .switch {
+      button {
+        width: 50%;
+        i {
+          transform: rotate(0deg) !important;
+        }
+      }
+    }
+  }
+  .result {
+    background: #ffe000;
+    font-size: 20px !important;
+  }
+}
