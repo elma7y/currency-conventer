@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
@@ -10,7 +16,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./convert-date.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ConvertDateComponent implements OnInit, OnDestroy {
+export class ConvertDateComponent implements OnInit, OnDestroy, DoCheck {
   latestSubscription!: Subscription;
   convertbyDateSubscription!: Subscription;
   symbols: any[] | undefined;
@@ -83,11 +89,14 @@ export class ConvertDateComponent implements OnInit, OnDestroy {
       });
   }
   convertDate() {
-    if (this.formgroup.valid) {
+    if (this.formgroup.controls['date'].value != null) {
       this.dateFormat = this.formgroup.controls['date'].value
         .toISOString()
         .slice(0, 10);
     }
+  }
+  ngDoCheck(): void {
+    this.convertDate();
   }
   ngOnDestroy(): void {
     if (this.latestSubscription && !this.latestSubscription.closed) {

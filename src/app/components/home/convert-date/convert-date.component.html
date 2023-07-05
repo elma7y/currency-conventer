@@ -4,11 +4,7 @@
       class="date d-flex flex-column flex-lg-row justify-content-start align-items-center my-md-2"
     >
       <label class="ms-3 me-5 my-3" for="date">Date</label>
-      <p-calendar
-        formControlName="date"
-        [showIcon]="true"
-        (onSelect)="convertDate()"
-      ></p-calendar>
+      <p-calendar formControlName="date" [showIcon]="true"></p-calendar>
     </div>
     <div
       class="conversion d-flex justify-content-between flex-column flex-lg-row align-items-center"
