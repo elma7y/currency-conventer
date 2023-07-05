@@ -8,6 +8,7 @@ import {
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
+import { Latest } from 'src/app/interface/latest';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -35,14 +36,13 @@ export class ConvertComponent implements OnInit, OnDestroy, DoCheck {
   });
 
   ngOnInit(): void {
-    // this.getLatest();
+    this.getLatest();
   }
   ngDoCheck(): void {}
   getLatest() {
     this.latestSubscription = this.apiService
       .getSymbols()
       .subscribe((res: any) => {
-        console.log(res);
         if (res.success === true) {
           this.symbols = Object.keys(res.symbols);
         } else {
@@ -62,7 +62,6 @@ export class ConvertComponent implements OnInit, OnDestroy, DoCheck {
           this.formgroup.controls['to'].value
         )
         .subscribe((res: any) => {
-          console.log(res);
           const from = this.formgroup.controls['from'].value;
           const to = this.formgroup.controls['to'].value;
           const amount = this.formgroup.controls['amount'].value;
@@ -70,6 +69,11 @@ export class ConvertComponent implements OnInit, OnDestroy, DoCheck {
             this.result = Number(
               ((res.rates[to] / res.rates[from]) * amount).toFixed(2)
             );
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Nice',
+              detail: `Your conversion was successful and equal to ${this.result}`,
+            });
           } else {
             this.messageService.add({
               severity: 'error',

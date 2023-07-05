@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Table } from 'primeng/table';
 import { Subscription } from 'rxjs';
-import { Symbols } from 'src/app/interface/symbols';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -16,9 +14,6 @@ export class CurrencyComponent implements OnInit, OnDestroy {
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
     this.getSymbols();
-  }
-  clear(table: Table) {
-    table.clear();
   }
   getSymbols() {
     this.allSymols = this.apiService.getSymbols().subscribe((res: any) => {

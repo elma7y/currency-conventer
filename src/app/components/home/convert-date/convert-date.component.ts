@@ -1,10 +1,4 @@
-import {
-  Component,
-  DoCheck,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
@@ -16,7 +10,7 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./convert-date.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ConvertDateComponent implements DoCheck, OnInit, OnDestroy {
+export class ConvertDateComponent implements OnInit, OnDestroy {
   latestSubscription!: Subscription;
   convertbyDateSubscription!: Subscription;
   symbols: any[] | undefined;
@@ -42,7 +36,6 @@ export class ConvertDateComponent implements DoCheck, OnInit, OnDestroy {
     this.latestSubscription = this.apiService
       .getSymbols()
       .subscribe((res: any) => {
-        console.log(res);
         if (res.success === true) {
           this.symbols = Object.keys(res.symbols);
         } else {
@@ -68,7 +61,6 @@ export class ConvertDateComponent implements DoCheck, OnInit, OnDestroy {
         this.dateFormat
       )
       .subscribe((res: any) => {
-        console.log(res);
         const from = this.formgroup.controls['from'].value;
         const to = this.formgroup.controls['to'].value;
         const amount = this.formgroup.controls['amount'].value;
@@ -76,6 +68,11 @@ export class ConvertDateComponent implements DoCheck, OnInit, OnDestroy {
           this.result = Number(
             ((res.rates[to] / res.rates[from]) * amount).toFixed(2)
           );
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Nice',
+            detail: `Your conversion was successful and equal to ${this.result}`,
+          });
         } else {
           this.messageService.add({
             severity: 'error',
@@ -84,9 +81,6 @@ export class ConvertDateComponent implements DoCheck, OnInit, OnDestroy {
           });
         }
       });
-  }
-  ngDoCheck(): void {
-    console.log(this.dateFormat);
   }
   convertDate() {
     if (this.formgroup.valid) {

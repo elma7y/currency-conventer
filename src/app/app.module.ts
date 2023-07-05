@@ -11,10 +11,10 @@ import { PrimeModule } from './modules/prime/prime.module';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { CurrencyComponent } from './components/currency/currency.component';
-import { ConvertComponent } from './components/convert/convert.component';
+import { ConvertComponent } from './components/home/convert/convert.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { ConvertDateComponent } from './components/convert-date/convert-date.component';
+import { ConvertDateComponent } from './components/home/convert-date/convert-date.component';
 
 @NgModule({
   declarations: [

@@ -23,8 +23,8 @@ export class ApiService {
     );
   }
 
-  convert(from: string, to: string) {
-    return this.http.get(
+  convert(from: string, to: string): Observable<Latest[]> {
+    return this.http.get<Latest[]>(
       `${environment.apiUrl}latest?access_key=${environment.AcessKey}&symbols=${from},${to},EUR`
     );
   }

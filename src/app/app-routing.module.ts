@@ -4,14 +4,17 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { CurrencyComponent } from './components/currency/currency.component';
-import { ConvertComponent } from './components/convert/convert.component';
-import { ConvertDateComponent } from './components/convert-date/convert-date.component';
+import { ConvertComponent } from './components/home/convert/convert.component';
+import { ConvertDateComponent } from './components/home/convert-date/convert-date.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [{ path: 'convert', component: ConvertComponent }],
+    children: [
+      { path: 'convert', component: ConvertComponent },
+      { path: 'currency-Date', component: ConvertDateComponent },
+    ],
   },
   {
     path: 'home',

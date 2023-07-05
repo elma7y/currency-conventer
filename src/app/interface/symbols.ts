@@ -1,6 +1,6 @@
 export interface Symbols {
   success: boolean;
   symbols: {
-    key: string;
+    [key: string]: string;
   };
 }

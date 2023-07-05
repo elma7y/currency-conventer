@@ -1,6 +1,9 @@
-<div class="my-5 container">
+<section class="my-5 container">
   <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
   <section class="my-5">
     <router-outlet></router-outlet>
   </section>
-</div>
+  <section *ngIf="showMessage">
+    <h2 class="text-capitalize text-center">please select a service</h2>
+  </section>
+</section>
